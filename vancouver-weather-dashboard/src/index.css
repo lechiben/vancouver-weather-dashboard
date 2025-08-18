@@ -1,0 +1,521 @@
+/* Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Custom CSS Variables */
+:root {
+  /* Vancouver Weather Dashboard Brand Colors */
+  --color-vancouver-blue: #1e40af;
+  --color-vancouver-teal: #0f766e;
+  --color-rain-blue: #3b82f6;
+  --color-sunny-yellow: #eab308;
+  --color-temp-orange: #f59e0b;
+  --color-temp-red: #dc2626;
+  --color-temp-cyan: #06b6d4;
+  
+  /* Weather-specific gradients */
+  --gradient-sky: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
+  --gradient-sunset: linear-gradient(135deg, #fef3c7 0%, #fcd34d 50%, #f59e0b 100%);
+  --gradient-rain: linear-gradient(135deg, #dbeafe 0%, #93c5fd 50%, #3b82f6 100%);
+  
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  
+  /* Border radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+/* Reset and base styles */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    color: theme(colors.gray.900);
+    background: var(--gradient-sky);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Heading styles */
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    color: theme(colors.gray.900);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-extrabold);
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  h5 {
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-medium);
+  }
+
+  h6 {
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+  }
+
+  /* Paragraph and text */
+  p {
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+  }
+
+  /* Links */
+  a {
+    color: var(--color-vancouver-blue);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  a:hover {
+    color: var(--color-vancouver-teal);
+    text-decoration: underline;
+  }
+
+  /* Focus styles */
+  *:focus {
+    outline: 2px solid var(--color-vancouver-blue);
+    outline-offset: 2px;
+  }
+
+  /* Button reset */
+  button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+  }
+
+  /* Input reset */
+  input, select, textarea {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  /* List reset */
+  ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Image responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Table reset */
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  /* Print styles */
+  @media print {
+    body {
+      background: white !important;
+      color: black !important;
+    }
+    
+    .no-print {
+      display: none !important;
+    }
+    
+    .print-break-before {
+      page-break-before: always;
+    }
+    
+    .print-break-after {
+      page-break-after: always;
+    }
+  }
+
+  /* Dark mode preparation */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-vancouver-blue: #3b82f6;
+      --color-vancouver-teal: #06b6d4;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Component layer - Weather-specific components */
+@layer components {
+  /* Weather card base */
+  .weather-card {
+    @apply bg-white rounded-lg shadow-md border border-gray-200 transition-all duration-300;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .weather-card:hover {
+    @apply shadow-lg transform scale-105;
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Navigation components */
+  .nav-tab {
+    @apply relative px-4 py-2 rounded-lg font-medium transition-all duration-200
+           flex items-center gap-2 min-w-fit;
+  }
+
+  .nav-tab-active {
+    @apply nav-tab bg-vancouver-blue text-white shadow-lg;
+  }
+
+  .nav-tab-inactive {
+    @apply nav-tab bg-gray-100 text-gray-700 hover:bg-blue-50 hover:text-vancouver-blue;
+  }
+
+  /* Metric displays */
+  .metric-display {
+    @apply text-2xl font-bold tracking-tight;
+  }
+
+  .metric-display-large {
+    @apply text-4xl font-extrabold tracking-tight;
+  }
+
+  .metric-display-small {
+    @apply text-lg font-semibold tracking-tight;
+  }
+
+  /* Temperature-specific colors */
+  .temp-cold {
+    color: var(--color-temp-cyan);
+  }
+
+  .temp-cool {
+    color: var(--color-vancouver-blue);
+  }
+
+  .temp-mild {
+    color: var(--color-temp-orange);
+  }
+
+  .temp-warm {
+    color: var(--color-temp-red);
+  }
+
+  /* Loading components */
+  .loading-spinner {
+    @apply w-8 h-8 border-4 border-gray-200 border-t-vancouver-blue rounded-full animate-spin;
+  }
+
+  .loading-pulse {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+
+  /* Chart containers */
+  .chart-container {
+    @apply weather-card p-6 relative;
+  }
+
+  .chart-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-sky);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  /* Status indicators */
+  .status-indicator {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-online {
+    @apply status-indicator bg-green-50 text-green-700;
+  }
+
+  .status-offline {
+    @apply status-indicator bg-red-50 text-red-700;
+  }
+
+  .status-loading {
+    @apply status-indicator bg-yellow-50 text-yellow-700;
+  }
+
+  /* Trend indicators */
+  .trend-indicator {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium;
+  }
+
+  .trend-up {
+    @apply trend-indicator bg-green-100 text-green-800;
+  }
+
+  .trend-down {
+    @apply trend-indicator bg-red-100 text-red-800;
+  }
+
+  .trend-stable {
+    @apply trend-indicator bg-gray-100 text-gray-800;
+  }
+}
+
+/* Utility layer - Custom utilities */
+@layer utilities {
+  /* Text effects */
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-md {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-vancouver-blue), var(--color-vancouver-teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-text-sunset {
+    background: var(--gradient-sunset);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Glass effects */
+  .glass-effect {
+    backdrop-filter: blur(16px) saturate(180%);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
+
+  .glass-effect-dark {
+    backdrop-filter: blur(16px) saturate(180%);
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
+
+  /* Focus utilities */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-vancouver-blue focus:ring-offset-2;
+  }
+
+  .focus-ring-inset {
+    @apply focus:outline-none focus:ring-2 focus:ring-inset focus:ring-vancouver-blue;
+  }
+
+  /* Animation delays */
+  .animate-delay-75 {
+    animation-delay: 75ms;
+  }
+
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-delay-150 {
+    animation-delay: 150ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animate-delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .animate-delay-1000 {
+    animation-delay: 1000ms;
+  }
+
+  /* Scroll utilities */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  .scroll-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scroll-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Weather-specific utilities */
+  .weather-gradient-sky {
+    background: var(--gradient-sky);
+  }
+
+  .weather-gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+
+  .weather-gradient-rain {
+    background: var(--gradient-rain);
+  }
+
+  /* Safe area utilities for mobile */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme(colors.gray.100);
+  border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme(colors.gray.400);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme(colors.gray.500);
+}
+
+::-webkit-scrollbar-corner {
+  background: theme(colors.gray.100);
+}
+
+/* Selection styles */
+::selection {
+  background-color: rgba(30, 64, 175, 0.3);
+  color: inherit;
+}
+
+::-moz-selection {
+  background-color: rgba(30, 64, 175, 0.3);
+  color: inherit;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .weather-card {
+    transition: none;
+  }
+  
+  .weather-card:hover {
+    transform: none;
+  }
+}

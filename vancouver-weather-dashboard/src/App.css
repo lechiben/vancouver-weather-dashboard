@@ -1,0 +1,390 @@
+/* App.css - Main Application Component Styles */
+
+/* App container */
+.weather-dashboard-app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 50%, #dbeafe 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated background elements */
+.weather-dashboard-app::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);
+  z-index: -1;
+  animation: backgroundFlow 20s ease-in-out infinite;
+}
+
+@keyframes backgroundFlow {
+  0%, 100% {
+    transform: translateX(-10px) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(10px) scale(1.02);
+    opacity: 0.9;
+  }
+}
+
+/* Main container */
+.dashboard-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 py-6;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header section */
+.dashboard-header {
+  @apply text-center mb-8;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.dashboard-title {
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold mb-2;
+  background: linear-gradient(135deg, #1e40af, #0f766e, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-subtitle {
+  @apply text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto mb-6;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* Station info card */
+.station-info-card {
+  @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 sm:p-6 max-w-4xl mx-auto border border-white/20;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.station-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 items-center;
+}
+
+.station-section {
+  @apply text-center md:text-left;
+}
+
+.station-section h3 {
+  @apply font-semibold text-gray-800 mb-2 text-sm sm:text-base;
+}
+
+.station-section p {
+  @apply text-xs sm:text-sm text-gray-600;
+}
+
+/* Live status indicator */
+.live-status {
+  @apply inline-flex items-center gap-2 bg-green-50 text-green-700 px-3 py-2 rounded-full text-sm font-medium;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.live-status-dot {
+  @apply w-2 h-2 bg-green-500 rounded-full;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Climate context banner */
+.climate-banner {
+  @apply mt-4 bg-blue-50/80 border border-blue-200/50 rounded-lg p-3 max-w-2xl mx-auto backdrop-blur-sm;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.climate-text {
+  @apply text-sm text-blue-800;
+}
+
+/* Navigation section */
+.dashboard-navigation {
+  @apply mb-8;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+/* Metrics grid */
+.metrics-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8;
+}
+
+.metric-card {
+  @apply bg-white/90 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-lg border border-white/20;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideInUp 0.6s ease-out both;
+}
+
+.metric-card:nth-child(1) { animation-delay: 0.1s; }
+.metric-card:nth-child(2) { animation-delay: 0.2s; }
+.metric-card:nth-child(3) { animation-delay: 0.3s; }
+.metric-card:nth-child(4) { animation-delay: 0.4s; }
+
+.metric-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.metric-header {
+  @apply flex items-center justify-between mb-3;
+}
+
+.metric-icon {
+  @apply text-2xl sm:text-3xl;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.metric-label {
+  @apply text-xs sm:text-sm font-medium text-gray-600 mb-1;
+}
+
+.metric-value {
+  @apply text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-1;
+  line-height: 1;
+}
+
+.metric-comparison {
+  @apply text-xs text-gray-500;
+}
+
+/* Main content area */
+.main-content {
+  @apply mb-8;
+  animation: fadeInUp 0.8s ease-out 1.2s both;
+}
+
+/* Loading states */
+.loading-container {
+  @apply min-h-screen flex items-center justify-center;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+}
+
+.loading-card {
+  @apply max-w-md mx-auto bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-8 text-center border border-white/20;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.loading-spinner-large {
+  @apply w-16 h-16 border-4 border-gray-200 border-t-blue-600 rounded-full mx-auto mb-4;
+  animation: spin 1s linear infinite;
+}
+
+.loading-title {
+  @apply text-2xl font-bold text-gray-800 mb-2;
+}
+
+.loading-message {
+  @apply text-gray-600 mb-4;
+}
+
+/* Error states */
+.error-container {
+  @apply min-h-screen flex items-center justify-center;
+  background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+}
+
+.error-card {
+  @apply max-w-md mx-auto bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-8 text-center border border-red-200/50;
+}
+
+.error-icon {
+  @apply text-6xl mb-4;
+}
+
+.error-title {
+  @apply text-2xl font-bold text-gray-800 mb-2;
+}
+
+.error-message {
+  @apply text-gray-600 mb-6;
+}
+
+.error-button {
+  @apply bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+}
+
+/* Footer section */
+.dashboard-footer {
+  animation: fadeInUp 0.8s ease-out 1.4s both;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .dashboard-container {
+    @apply px-3 py-4;
+  }
+  
+  .dashboard-title {
+    @apply text-2xl;
+  }
+  
+  .dashboard-subtitle {
+    @apply text-base;
+  }
+  
+  .station-info-card {
+    @apply p-4;
+  }
+  
+  .metric-card {
+    @apply p-4;
+  }
+  
+  .metric-value {
+    @apply text-xl;
+  }
+  
+  .metric-icon {
+    @apply text-xl;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    @apply px-2;
+  }
+  
+  .dashboard-title {
+    @apply text-xl;
+  }
+  
+  .metrics-grid {
+    @apply grid-cols-1 gap-3;
+  }
+  
+  .station-grid {
+    @apply grid-cols-1 gap-3 text-center;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .weather-dashboard-app {
+    background: white;
+  }
+  
+  .station-info-card,
+  .metric-card {
+    border: 2px solid #000;
+    background: white;
+  }
+  
+  .dashboard-title {
+    background: none;
+    color: #000;
+    -webkit-text-fill-color: initial;
+  }
+}
+
+/* Print styles */
+@media print {
+  .weather-dashboard-app {
+    background: white !important;
+  }
+  
+  .weather-dashboard-app::before {
+    display: none;
+  }
+  
+  .station-info-card,
+  .metric-card {
+    background: white !important;
+    border: 1px solid #000 !important;
+    box-shadow: none !important;
+  }
+  
+  .dashboard-title {
+    background: none !important;
+    color: #000 !important;
+    -webkit-text-fill-color: initial !important;
+  }
+  
+  .loading-container,
+  .error-container {
+    display: none !important;
+  }
+}
+
+/* Focus management for accessibility */
+.weather-dashboard-app *:focus {
+  outline: 2px solid #1e40af;
+  outline-offset: 2px;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .weather-dashboard-app::before {
+    animation: none;
+  }
+  
+  .dashboard-header,
+  .dashboard-navigation,
+  .metrics-grid,
+  .main-content,
+  .dashboard-footer {
+    animation: none;
+  }
+  
+  .metric-card {
+    animation: none;
+    transition: none;
+  }
+  
+  .metric-card:hover {
+    transform: none;
+  }
+  
+  .loading-card {
+    animation: none;
+  }
+  
+  .loading-spinner-large {
+    animation: spin 1s linear infinite;
+  }
+}
