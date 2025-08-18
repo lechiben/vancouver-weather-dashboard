@@ -1,10 +1,10 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
 /* Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 /* Custom CSS Variables */
 :root {
@@ -16,45 +16,26 @@
   --color-temp-orange: #f59e0b;
   --color-temp-red: #dc2626;
   --color-temp-cyan: #06b6d4;
-  
+
   /* Weather-specific gradients */
-  --gradient-sky: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
-  --gradient-sunset: linear-gradient(135deg, #fef3c7 0%, #fcd34d 50%, #f59e0b 100%);
-  --gradient-rain: linear-gradient(135deg, #dbeafe 0%, #93c5fd 50%, #3b82f6 100%);
-  
-  /* Typography */
-  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-weight-light: 300;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extrabold: 800;
-  
-  /* Spacing scale */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  
-  /* Border radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  
-  /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-normal: 300ms ease;
-  --transition-slow: 500ms ease;
+  --gradient-sky: linear-gradient(
+    135deg,
+    #e0f2fe 0%,
+    #bae6fd 50%,
+    #7dd3fc 100%
+  );
+  --gradient-sunset: linear-gradient(
+    135deg,
+    #fef3c7 0%,
+    #fcd34d 50%,
+    #f59e0b 100%
+  );
+  --gradient-rain: linear-gradient(
+    135deg,
+    #dbeafe 0%,
+    #93c5fd 50%,
+    #3b82f6 100%
+  );
 }
 
 /* Reset and base styles */
@@ -73,8 +54,8 @@
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    font-family: var(--font-family);
-    font-weight: var(--font-weight-normal);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-weight: 400;
     line-height: 1.6;
     color: theme(colors.gray.900);
     background: var(--gradient-sky);
@@ -84,41 +65,40 @@
   }
 
   /* Heading styles */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 0;
-    font-weight: var(--font-weight-bold);
+    font-weight: 700;
     line-height: 1.2;
     color: theme(colors.gray.900);
   }
 
   h1 {
-    font-size: 2.5rem;
-    font-weight: var(--font-weight-extrabold);
+    @apply text-4xl font-extrabold;
   }
 
   h2 {
-    font-size: 2rem;
-    font-weight: var(--font-weight-bold);
+    @apply text-3xl font-bold;
   }
 
   h3 {
-    font-size: 1.5rem;
-    font-weight: var(--font-weight-semibold);
+    @apply text-2xl font-semibold;
   }
 
   h4 {
-    font-size: 1.25rem;
-    font-weight: var(--font-weight-semibold);
+    @apply text-xl font-semibold;
   }
 
   h5 {
-    font-size: 1.125rem;
-    font-weight: var(--font-weight-medium);
+    @apply text-lg font-medium;
   }
 
   h6 {
-    font-size: 1rem;
-    font-weight: var(--font-weight-medium);
+    @apply text-base font-medium;
   }
 
   /* Paragraph and text */
@@ -129,20 +109,16 @@
 
   /* Links */
   a {
-    color: var(--color-vancouver-blue);
-    text-decoration: none;
-    transition: color var(--transition-fast);
+    @apply text-blue-600 no-underline transition-colors;
   }
 
   a:hover {
-    color: var(--color-vancouver-teal);
-    text-decoration: underline;
+    @apply text-blue-800 underline;
   }
 
   /* Focus styles */
   *:focus {
-    outline: 2px solid var(--color-vancouver-blue);
-    outline-offset: 2px;
+    @apply outline-none ring-2 ring-blue-600 ring-offset-2;
   }
 
   /* Button reset */
@@ -157,7 +133,9 @@
   }
 
   /* Input reset */
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     margin: 0;
     padding: 0;
     border: none;
@@ -167,7 +145,8 @@
   }
 
   /* List reset */
-  ul, ol {
+  ul,
+  ol {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -184,43 +163,6 @@
     border-collapse: collapse;
     border-spacing: 0;
   }
-
-  /* Print styles */
-  @media print {
-    body {
-      background: white !important;
-      color: black !important;
-    }
-    
-    .no-print {
-      display: none !important;
-    }
-    
-    .print-break-before {
-      page-break-before: always;
-    }
-    
-    .print-break-after {
-      page-break-after: always;
-    }
-  }
-
-  /* Dark mode preparation */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --color-vancouver-blue: #3b82f6;
-      --color-vancouver-teal: #06b6d4;
-    }
-  }
-
-  /* Reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
 }
 
 /* Component layer - Weather-specific components */
@@ -233,22 +175,25 @@
   }
 
   .weather-card:hover {
-    @apply shadow-lg transform scale-105;
-    box-shadow: var(--shadow-xl);
+    @apply shadow-lg;
+    transform: scale(1.02);
   }
 
   /* Navigation components */
   .nav-tab {
-    @apply relative px-4 py-2 rounded-lg font-medium transition-all duration-200
-           flex items-center gap-2 min-w-fit;
+    @apply relative px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 min-w-fit;
   }
 
   .nav-tab-active {
-    @apply nav-tab bg-vancouver-blue text-white shadow-lg;
+    @apply bg-blue-600 text-white shadow-lg;
   }
 
   .nav-tab-inactive {
-    @apply nav-tab bg-gray-100 text-gray-700 hover:bg-blue-50 hover:text-vancouver-blue;
+    @apply bg-gray-100 text-gray-700;
+  }
+
+  .nav-tab-inactive:hover {
+    @apply bg-blue-50 text-blue-600;
   }
 
   /* Metric displays */
@@ -283,7 +228,7 @@
 
   /* Loading components */
   .loading-spinner {
-    @apply w-8 h-8 border-4 border-gray-200 border-t-vancouver-blue rounded-full animate-spin;
+    @apply w-8 h-8 border-4 border-gray-200 border-t-blue-600 rounded-full animate-spin;
   }
 
   .loading-pulse {
@@ -292,18 +237,18 @@
 
   /* Chart containers */
   .chart-container {
-    @apply weather-card p-6 relative;
+    @apply bg-white rounded-lg shadow-md border border-gray-200 p-6 relative;
   }
 
   .chart-container::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 4px;
     background: var(--gradient-sky);
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    border-radius: 0.75rem 0.75rem 0 0;
   }
 
   /* Status indicators */
@@ -312,15 +257,15 @@
   }
 
   .status-online {
-    @apply status-indicator bg-green-50 text-green-700;
+    @apply bg-green-50 text-green-700;
   }
 
   .status-offline {
-    @apply status-indicator bg-red-50 text-red-700;
+    @apply bg-red-50 text-red-700;
   }
 
   .status-loading {
-    @apply status-indicator bg-yellow-50 text-yellow-700;
+    @apply bg-yellow-50 text-yellow-700;
   }
 
   /* Trend indicators */
@@ -329,15 +274,15 @@
   }
 
   .trend-up {
-    @apply trend-indicator bg-green-100 text-green-800;
+    @apply bg-green-100 text-green-800;
   }
 
   .trend-down {
-    @apply trend-indicator bg-red-100 text-red-800;
+    @apply bg-red-100 text-red-800;
   }
 
   .trend-stable {
-    @apply trend-indicator bg-gray-100 text-gray-800;
+    @apply bg-gray-100 text-gray-800;
   }
 }
 
@@ -358,11 +303,14 @@
 
   /* Gradient text */
   .gradient-text {
-    background: linear-gradient(135deg, var(--color-vancouver-blue), var(--color-vancouver-teal));
+    background: linear-gradient(
+      135deg,
+      var(--color-vancouver-blue),
+      var(--color-vancouver-teal)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent;
   }
 
   .gradient-text-sunset {
@@ -370,7 +318,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent;
   }
 
   /* Glass effects */
@@ -388,58 +335,11 @@
 
   /* Focus utilities */
   .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-vancouver-blue focus:ring-offset-2;
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
   }
 
   .focus-ring-inset {
-    @apply focus:outline-none focus:ring-2 focus:ring-inset focus:ring-vancouver-blue;
-  }
-
-  /* Animation delays */
-  .animate-delay-75 {
-    animation-delay: 75ms;
-  }
-
-  .animate-delay-100 {
-    animation-delay: 100ms;
-  }
-
-  .animate-delay-150 {
-    animation-delay: 150ms;
-  }
-
-  .animate-delay-200 {
-    animation-delay: 200ms;
-  }
-
-  .animate-delay-300 {
-    animation-delay: 300ms;
-  }
-
-  .animate-delay-500 {
-    animation-delay: 500ms;
-  }
-
-  .animate-delay-700 {
-    animation-delay: 700ms;
-  }
-
-  .animate-delay-1000 {
-    animation-delay: 1000ms;
-  }
-
-  /* Scroll utilities */
-  .scroll-smooth {
-    scroll-behavior: smooth;
-  }
-
-  .scroll-hidden {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .scroll-hidden::-webkit-scrollbar {
-    display: none;
+    @apply focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600;
   }
 
   /* Weather-specific utilities */
@@ -473,6 +373,31 @@
   }
 }
 
+/* Print styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .weather-card:hover {
+    transform: none;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -480,22 +405,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: theme(colors.gray.100);
-  border-radius: var(--radius-md);
+  @apply bg-gray-100 rounded;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: theme(colors.gray.400);
-  border-radius: var(--radius-md);
-  transition: background var(--transition-fast);
+  @apply bg-gray-400 rounded transition-colors;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: theme(colors.gray.500);
-}
-
-::-webkit-scrollbar-corner {
-  background: theme(colors.gray.100);
+  @apply bg-gray-500;
 }
 
 /* Selection styles */
@@ -507,15 +425,4 @@
 ::-moz-selection {
   background-color: rgba(30, 64, 175, 0.3);
   color: inherit;
-}
-
-/* Accessibility improvements */
-@media (prefers-reduced-motion: reduce) {
-  .weather-card {
-    transition: none;
-  }
-  
-  .weather-card:hover {
-    transform: none;
-  }
 }

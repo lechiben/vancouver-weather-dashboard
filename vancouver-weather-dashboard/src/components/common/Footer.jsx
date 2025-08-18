@@ -199,22 +199,20 @@ const Footer = ({
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
             {/* Copyright & Attribution */}
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
-              <p>© 2024 Vancouver Weather Dashboard</p>
-              <p>Built for BCIT CST Co-op Portfolio</p>
               <a
                 href="https://climate.weather.gc.ca/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 underline"
               >
-                Environment Canada Data
+                Data from Environment Canada Data
               </a>
             </div>
 
             {/* Links & Social */}
             <div className="flex items-center space-x-4 mt-2 md:mt-0">
               <a
-                href="https://linkedin.com/in/yourprofile"
+                href="https://linkedin.com/in/benlechi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 transition-colors"
@@ -223,7 +221,7 @@ const Footer = ({
                 💼 LinkedIn
               </a>
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/lechiben"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-800 transition-colors"
@@ -232,7 +230,7 @@ const Footer = ({
                 📂 GitHub
               </a>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:lechiben@hotmail.com"
                 className="text-green-600 hover:text-green-800 transition-colors"
                 aria-label="Email Contact"
               >
@@ -256,7 +254,7 @@ export const MinimalFooter = ({ dataSource, techStack }) => {
         Data: {dataSource} | Built with {techStack}
       </p>
       <p className="text-xs mt-2">
-        © 2024 Vancouver Weather Dashboard - BCIT CST Portfolio Project
+        © Vancouver Weather Dashboard
       </p>
     </footer>
   );
