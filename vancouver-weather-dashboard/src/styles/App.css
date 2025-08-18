@@ -1,0 +1,280 @@
+/* App-specific styles for Vancouver Weather Dashboard */
+
+/* Main app container */
+.weather-dashboard {
+  @apply min-h-screen bg-gradient-to-br from-blue-50 to-gray-100;
+}
+
+/* Header styles */
+.dashboard-header {
+  @apply text-center mb-8 animate-fade-in;
+}
+
+.dashboard-title {
+  @apply text-4xl lg:text-5xl font-bold text-gray-800 mb-2 gradient-text;
+}
+
+.dashboard-subtitle {
+  @apply text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto;
+}
+
+/* Station info card */
+.station-info-card {
+  @apply bg-white rounded-lg shadow-md p-4 max-w-4xl mx-auto weather-card;
+}
+
+.station-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4 items-center;
+}
+
+/* Navigation styles */
+.dashboard-nav {
+  @apply bg-white rounded-lg shadow-md p-4 mb-6 weather-card;
+}
+
+.nav-tabs {
+  @apply flex flex-wrap gap-2;
+}
+
+.year-filter {
+  @apply flex items-center gap-3;
+}
+
+.year-select {
+  @apply px-3 py-2 border border-gray-300 rounded-lg text-sm
+         focus:ring-2 focus:ring-vancouver-blue focus:border-vancouver-blue
+         bg-white shadow-sm min-w-fit focus-ring;
+}
+
+/* Metric cards grid */
+.metrics-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8;
+}
+
+.metric-card {
+  @apply weather-card p-6 transition-all duration-300 hover:scale-105 animate-slide-up;
+}
+
+.metric-header {
+  @apply flex items-center justify-between mb-3;
+}
+
+.metric-value {
+  @apply text-3xl font-bold mb-1;
+}
+
+.metric-label {
+  @apply text-sm text-gray-600 mb-2;
+}
+
+.metric-comparison {
+  @apply text-xs text-gray-500;
+}
+
+/* Chart containers */
+.chart-section {
+  @apply mb-8;
+}
+
+.chart-title {
+  @apply text-xl font-bold text-gray-800 mb-2;
+}
+
+.chart-subtitle {
+  @apply text-gray-600 text-sm mb-4;
+}
+
+.charts-grid {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+}
+
+/* Loading states */
+.loading-container {
+  @apply min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 
+         flex items-center justify-center;
+}
+
+.loading-card {
+  @apply max-w-md mx-auto bg-white rounded-lg shadow-lg p-6 text-center weather-card;
+}
+
+.loading-icon {
+  @apply text-6xl mb-4;
+}
+
+.loading-title {
+  @apply text-2xl font-bold text-gray-800 mb-2;
+}
+
+.loading-message {
+  @apply text-gray-600 mb-4;
+}
+
+.loading-spinner-large {
+  @apply loading-spinner w-12 h-12 border-8;
+}
+
+/* Error states */
+.error-container {
+  @apply min-h-screen bg-gradient-to-br from-red-50 to-gray-100 
+         flex items-center justify-center;
+}
+
+.error-card {
+  @apply max-w-md mx-auto bg-white rounded-lg shadow-lg p-6 text-center weather-card;
+}
+
+.error-icon {
+  @apply text-6xl mb-4;
+}
+
+.error-title {
+  @apply text-2xl font-bold text-gray-800 mb-2;
+}
+
+.error-message {
+  @apply text-gray-600 mb-4;
+}
+
+.error-button {
+  @apply bg-vancouver-blue text-white px-4 py-2 rounded-lg 
+         hover:bg-blue-700 transition-colors focus-ring;
+}
+
+/* Footer styles */
+.dashboard-footer {
+  @apply bg-white rounded-lg shadow-md p-6 mt-8 weather-card;
+}
+
+.footer-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6;
+}
+
+.footer-section {
+  @apply text-center md:text-left;
+}
+
+.footer-title {
+  @apply font-semibold text-gray-800 mb-2;
+}
+
+.footer-content {
+  @apply text-sm text-gray-600;
+}
+
+.footer-links {
+  @apply flex flex-wrap gap-4 justify-center md:justify-start;
+}
+
+.footer-link {
+  @apply text-vancouver-blue hover:text-blue-700 transition-colors text-sm focus-ring;
+}
+
+/* Status indicators */
+.status-indicator {
+  @apply inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium;
+}
+
+.status-online {
+  @apply status-indicator bg-green-50 text-green-700;
+}
+
+.status-offline {
+  @apply status-indicator bg-red-50 text-red-700;
+}
+
+.status-loading {
+  @apply status-indicator bg-yellow-50 text-yellow-700;
+}
+
+.status-dot {
+  @apply w-2 h-2 rounded-full;
+}
+
+.status-dot-online {
+  @apply status-dot bg-green-500 animate-pulse-slow;
+}
+
+.status-dot-offline {
+  @apply status-dot bg-red-500;
+}
+
+.status-dot-loading {
+  @apply status-dot bg-yellow-500 animate-pulse;
+}
+
+/* Climate context banner */
+.climate-banner {
+  @apply mt-4 bg-blue-50 border border-blue-200 rounded-lg p-3 max-w-2xl mx-auto;
+}
+
+.climate-text {
+  @apply text-sm text-blue-800;
+}
+
+/* Tooltip styles */
+.tooltip {
+  @apply absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 
+         px-2 py-1 bg-gray-800 text-white text-xs rounded 
+         opacity-0 group-hover:opacity-100 transition-opacity 
+         whitespace-nowrap pointer-events-none z-10;
+}
+
+/* Quick actions */
+.quick-actions {
+  @apply flex items-center gap-2 text-xs;
+}
+
+.quick-action-button {
+  @apply text-gray-500 hover:text-gray-700 transition-colors focus-ring;
+}
+
+/* Page content container */
+.page-content {
+  @apply max-w-7xl mx-auto px-6 py-6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-title {
+    @apply text-3xl;
+  }
+  
+  .metrics-grid {
+    @apply grid-cols-1 gap-3;
+  }
+  
+  .metric-card {
+    @apply p-4;
+  }
+  
+  .metric-value {
+    @apply text-2xl;
+  }
+  
+  .nav-tabs {
+    @apply justify-center;
+  }
+  
+  .year-filter {
+    @apply flex-col gap-2;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-content {
+    @apply px-4 py-4;
+  }
+  
+  .dashboard-title {
+    @apply text-2xl;
+  }
+  
+  .station-info-card {
+    @apply p-3;
+  }
+  
+  .dashboard-nav {
+    @apply p-3;
+  }
+}

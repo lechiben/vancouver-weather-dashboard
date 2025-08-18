@@ -1,0 +1,206 @@
+/* Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  :root {
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    
+    /* Light mode variables */
+    --color-primary: #1e40af;
+    --color-secondary: #0f766e;
+    --color-accent: #f59e0b;
+    
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-gray-900;
+  }
+
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    
+    body {
+      background: white !important;
+    }
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  .weather-card {
+    @apply bg-white rounded-lg shadow-weather-card border border-gray-200 
+           transition-all duration-200 hover:shadow-weather-card-hover hover:scale-105;
+  }
+
+  .weather-metric {
+    @apply flex items-center justify-between p-4 weather-card;
+  }
+
+  .temperature-display {
+    @apply text-3xl font-bold text-temp-orange;
+  }
+
+  .rainfall-display {
+    @apply text-2xl font-semibold text-rain-blue;
+  }
+
+  .humidity-display {
+    @apply text-2xl font-semibold text-temp-cyan;
+  }
+
+  .sunshine-display {
+    @apply text-2xl font-semibold text-sunny-yellow;
+  }
+
+  .nav-button {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200
+           flex items-center gap-2 min-w-fit;
+  }
+
+  .nav-button-active {
+    @apply nav-button bg-vancouver-blue text-white shadow-lg;
+  }
+
+  .nav-button-inactive {
+    @apply nav-button bg-gray-100 text-gray-700 hover:bg-blue-50 hover:text-vancouver-blue;
+  }
+
+  .chart-container {
+    @apply bg-white rounded-lg p-6 shadow-weather-card border border-gray-200;
+  }
+
+  .loading-spinner {
+    @apply inline-block w-8 h-8 border-4 border-gray-200 border-t-vancouver-blue rounded-full animate-spin;
+  }
+
+  .metric-icon {
+    @apply text-2xl mr-3 flex-shrink-0;
+  }
+
+  .trend-indicator {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium;
+  }
+
+  .trend-up {
+    @apply trend-indicator bg-green-100 text-green-800;
+  }
+
+  .trend-down {
+    @apply trend-indicator bg-red-100 text-red-800;
+  }
+
+  .trend-stable {
+    @apply trend-indicator bg-gray-100 text-gray-800;
+  }
+}
+
+/* Custom utility styles */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .backdrop-blur-subtle {
+    backdrop-filter: blur(8px);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #1e40af, #0f766e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-subtle bg-white/70 border border-white/20;
+  }
+
+  /* Smooth scrolling */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-vancouver-blue focus:ring-offset-2;
+  }
+
+  /* Animation delays for staggered effects */
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+}
+
+/* Dark mode support (if needed later) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #3b82f6;
+    --color-secondary: #06b6d4;
+    --color-accent: #fbbf24;
+  }
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  .temperature-display {
+    @apply text-2xl;
+  }
+  
+  .rainfall-display,
+  .humidity-display,
+  .sunshine-display {
+    @apply text-xl;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
