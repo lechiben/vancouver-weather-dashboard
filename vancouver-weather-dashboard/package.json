@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx vite",
-    "build": "npx vite build",
-    "lint": "npx eslint .",
-    "preview": "npx vite preview"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "axios": "^1.11.0",
@@ -34,16 +34,5 @@
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=8.0.0"
-  },
-  "description": "Vancouver Weather Analytics Dashboard - Comprehensive climate data visualization",
-  "keywords": [
-    "weather",
-    "dashboard",
-    "vancouver",
-    "climate",
-    "react",
-    "tailwindcss"
-  ],
-  "author": "Ben Le",
-  "license": "MIT"
+  }
 }
