@@ -1,35 +1,40 @@
 /* App.css - Main Application Component Styles */
 
-/* App container */
+/* App container - background will come from body in index.css */
 .weather-dashboard-app {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 50%, #dbeafe 100%);
   position: relative;
   overflow-x: hidden;
 }
 
-/* Animated background elements */
+/* Optional overlay for better content readability */
 .weather-dashboard-app::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 200px;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);
-  z-index: -1;
-  animation: backgroundFlow 20s ease-in-out infinite;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1); /* Adjust opacity as needed */
+  backdrop-filter: blur(2px); /* Optional blur effect */
+  z-index: 0;
+  pointer-events: none;
 }
 
-@keyframes backgroundFlow {
-  0%, 100% {
-    transform: translateX(-10px) scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translateX(10px) scale(1.02);
-    opacity: 0.9;
-  }
+/* Ensure content appears above the overlay */
+.weather-dashboard-app > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Alternative: If you want gradient overlay instead of solid color */
+.weather-dashboard-app.gradient-overlay::before {
+  background: linear-gradient(
+    135deg, 
+    rgba(240, 249, 255, 0.8) 0%, 
+    rgba(224, 231, 255, 0.6) 50%, 
+    rgba(219, 234, 254, 0.8) 100%
+  );
 }
 
 /* Main container */
@@ -161,7 +166,6 @@
 /* Loading states */
 .loading-container {
   @apply min-h-screen flex items-center justify-center;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
 }
 
 .loading-card {
@@ -185,7 +189,6 @@
 /* Error states */
 .error-container {
   @apply min-h-screen flex items-center justify-center;
-  background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
 }
 
 .error-card {
@@ -213,7 +216,7 @@
   animation: fadeInUp 0.8s ease-out 1.4s both;
 }
 
-/* Animations */
+/* Rest of your existing animations and styles... */
 @keyframes fadeInUp {
   from {
     opacity: 0;

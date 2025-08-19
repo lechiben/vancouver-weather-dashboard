@@ -99,8 +99,8 @@ const App = () => {
   // Error handling
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-red-50 to-gray-100 flex items-center justify-center">
-        <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="max-w-md mx-auto bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6">
           <div className="text-center">
             <div className="text-6xl mb-4">⚠️</div>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">
@@ -122,8 +122,10 @@ const App = () => {
   // Loading state
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center">
-        <LoadingSpinner message="Loading Vancouver weather data..." />
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-8">
+          <LoadingSpinner message="Loading Vancouver weather data..." />
+        </div>
       </div>
     );
   }
@@ -151,7 +153,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100">
+    <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-6 py-6">
         {/* Header Section */}
         <Header
